@@ -70,7 +70,7 @@ fn parse_make_p(lines: &mut impl Iterator<Item = String>) -> Result<Targets, Str
 fn print_dot_graph(targets: Vec<(Rc<String>, Vec<Rc<String>>)>) {
     let dot_pre = "digraph G {
         graph [
-        rankdir=LR,
+        rankdir=RL,
     ]
 
     node [
