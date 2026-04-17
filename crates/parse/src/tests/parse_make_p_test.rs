@@ -1,5 +1,6 @@
 use std::rc::Rc;
 
+#[allow(unused)]
 fn make_targets(raw: &[(&str, &[&str])]) -> crate::Targets {
     raw.iter()
         .map(|(k, vs)| {
