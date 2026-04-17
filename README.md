@@ -1,4 +1,4 @@
-# Makevizzy
+# MakeSense
 
 A simple Makefile visualizer.
 
@@ -8,10 +8,10 @@ This is a Rust rewrite of a Python script that visualizes Makefile targets, depe
 
 ```sh
 git clone git@github.com:InvisOn/makevizzy.git
-cd makevizzy
-cargo install --path .
+cd makesense
+cargo install --path crates/core
 # in a directory with a Makefile
-LANG=C make -p | makevizzy | dot -Tpdf -o workflow.pdf
+LANG=C make -p | ms | dot -Tpdf -o make.png
 ```
 
 ## Result
