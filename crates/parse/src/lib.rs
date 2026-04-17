@@ -1,10 +1,11 @@
+mod tests;
 use std::rc::Rc;
 
 type Targets = Vec<(Rc<String>, Vec<Rc<String>>)>;
 
 pub fn parse_make_p(lines: &mut impl Iterator<Item = String>) -> Result<Targets, String> {
     if !lines.any(|x| x.starts_with("# Make data base, printed on ")) {
-        return Err("Input seems not compatible with `LANG=C make -p`.".to_string());
+        return Err("Input is not compatible with `LANG=C make -p`.".to_string());
     };
 
     if !lines.any(|x| x.starts_with("# Files")) {
