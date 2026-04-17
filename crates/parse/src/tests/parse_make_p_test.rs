@@ -12,9 +12,8 @@ fn make_targets(raw: &[(&str, &[&str])]) -> crate::Targets {
         .collect()
 }
 
-#[test]
-fn test_parse() {
-    let mut makefile = "# GNU Make 4.3
+#[allow(unused)]
+const MAKE_P: &str = "# GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -1239,11 +1238,13 @@ src/main.rs:
 # strcache performance: lookups = 834 / hit rate = 38%
 # hash-table stats:
 # Load=513/8192=6%, Rehash=0, Collisions=55/834=7%
-# Finished Make data base on Fri Apr 17 22:06:28 2026"
-        .split('\n')
-        .map(|s| s.to_string() + "\n");
+# Finished Make data base on Fri Apr 17 22:06:28 2026";
 
-    let result = crate::parse_make_p(&mut makefile);
+#[test]
+fn test_parse() {
+    let mut make_p = MAKE_P.split('\n').map(|s| s.to_string() + "\n");
+
+    let result = crate::parse_make_p(&mut make_p);
 
     assert!(result.is_ok());
 

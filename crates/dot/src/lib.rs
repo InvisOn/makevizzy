@@ -3,6 +3,7 @@ use std::{
     rc::Rc,
 };
 
+// TODO: add tests
 pub fn print_dot_graph(targets: Vec<(Rc<String>, Vec<Rc<String>>)>) {
     let dot_pre = "digraph G {
         graph [

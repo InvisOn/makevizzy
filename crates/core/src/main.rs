@@ -3,6 +3,8 @@ use std::{
     process::exit,
 };
 
+// TODO: make proper CLI
+// TODO: add integration tests
 fn main() {
     let lines = &mut stdin().lock().lines().map_while(Result::ok);
 
